@@ -13,10 +13,10 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(morgan('dev'));
 app.use(cors());
 
-app.set('port', 8081);
+app.set('port', process.env.port);
 
 var server = http.createServer(app);
 
 app.listen(8081, (err) => {
-    console.log("listtening on port 8081");
+    console.log("listening on port " + process.env.port);
 })
