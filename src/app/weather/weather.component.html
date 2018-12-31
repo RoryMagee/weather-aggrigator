@@ -1,8 +1,18 @@
-<div class="container">
-    <div *ngIf="data">
-        {{ data | json }}
+<section id="weather">
+    <div class="container">
+        <div *ngIf="!data">
+            No Location
+        </div>
+        <div *ngIf="data">
+            <h1 class="mt-5">{{ data.location.name }}</h1>
+            <div class="card text-center">
+                <div class="card-body">
+                    <img src="{{ data.current.condition.icon }}" alt="">
+                    <p class="card-text">{{ data.current.temp_c }}</p>
+                    <p class="card-text">{{ data.current.condition.text }}</p>
+                    <hr>
+                </div>
+            </div>
+        </div>
     </div>
-    <div *ngIf="!data">
-        No Location
-    </div>
-</div>
+</section>
