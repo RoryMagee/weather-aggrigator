@@ -5,7 +5,6 @@ import { RestApiService } from '../rest-api.service';
 import { SearchComponent } from '../search/search.component';
 import { environment } from '../../environments/environment';
 
-
 @Component({
   selector: 'app-weather',
   templateUrl: './weather.component.html',
@@ -26,9 +25,10 @@ export class WeatherComponent implements OnInit {
     });
   }
 
-  async getWeather() {
+  getWeather() {
     console.log("getting weather");
-    this.data = this.http.get(this.link + environment.api_key + '&q=' + this.searchTerm);
+    const response = this.http.get(this.link + environment.api_key + '&q=' + this.searchTerm).toPromise();
+    response['error'] ? console.log('error') : this.data = response;
     // this.data = null;
     // console.log('getting weather');
     // try {
