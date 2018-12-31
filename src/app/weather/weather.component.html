@@ -1,6 +1,8 @@
 <div class="container">
-    <p>{{ searchTerm }}</p>
-    <div>
+    <div *ngIf="data">
         {{ data | json }}
+    </div>
+    <div *ngIf="!data">
+        No Location
     </div>
 </div>

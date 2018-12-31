@@ -25,18 +25,22 @@ export class WeatherComponent implements OnInit {
     });
   }
 
-  getWeather() {
-    console.log("getting weather");
-    const response = this.http.get(this.link + environment.api_key + '&q=' + this.searchTerm).toPromise();
-    response['error'] ? console.log('error') : this.data = response;
-    // this.data = null;
-    // console.log('getting weather');
-    // try {
-    //   const result = await this.rest.get(this.link + environment.api_key + '&q=' + this.searchTerm);
-    //   result['error'] ? this.data = "error" : this.data = result;
-    //   console.log(this.data);
-    // } catch(error) {
-    //   console.log(error);
-    // }
+  async getWeather() {
+    try {
+      console.log("getting weather");
+      const response = await this.http.get(this.link + environment.api_key + '&q=' + this.searchTerm, { observe: 'response' })
+      .subscribe(resp => {
+        if (resp.status == 200) {
+          this.data = resp.body;
+          console.log("status code ok");
+        } else {
+          console.log('status not ok');
+        }
+      }, err => {
+        this.data = null;
+      });
+    } catch (error) {
+      this.data = '';
+    }
   }
 }

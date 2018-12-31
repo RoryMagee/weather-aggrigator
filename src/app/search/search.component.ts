@@ -8,7 +8,6 @@ import { WeatherComponent } from '../weather/weather.component';
 })
 export class SearchComponent implements OnInit {
   searchTerm: string = '';
-  current: any;
   constructor(private router: Router) { }
 
   ngOnInit() {
