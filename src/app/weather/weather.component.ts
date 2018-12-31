@@ -15,10 +15,11 @@ export class WeatherComponent implements OnInit {
   searchTerm: string;
   data: any;
   link: string = "http://api.apixu.com/v1/current.json?key=";
-  constructor(private router: Router, private activatedRouter: ActivatedRoute, private rest: RestApiService) { }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private http: HttpClient) { }
 
   ngOnInit() {
-    this.activatedRouter.params.subscribe(res => {
+    this.activatedRoute.params.subscribe(res => {
+      console.log('ngOnInit');
       this.searchTerm = res['searchTerm'];
       console.log(this.searchTerm);
       this.getWeather();
@@ -26,12 +27,16 @@ export class WeatherComponent implements OnInit {
   }
 
   async getWeather() {
-    try {
-      this.data = await this.rest.get(this.link + environment.api_key + '&q=' + this.searchTerm);
-    } catch(error) {
-      console.log(error);
-    }
+    console.log("getting weather");
+    this.data = this.http.get(this.link + environment.api_key + '&q=' + this.searchTerm);
+    // this.data = null;
+    // console.log('getting weather');
+    // try {
+    //   const result = await this.rest.get(this.link + environment.api_key + '&q=' + this.searchTerm);
+    //   result['error'] ? this.data = "error" : this.data = result;
+    //   console.log(this.data);
+    // } catch(error) {
+    //   console.log(error);
+    // }
   }
-
-
 }

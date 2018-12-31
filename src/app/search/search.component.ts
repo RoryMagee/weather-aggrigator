@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { WeatherComponent } from '../weather/weather.component';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -13,17 +14,12 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
   }
 
-  // stoppedTyping() {
-  //   clearTimeout(this.current);
-  //   this.current = setTimeout(this.search, 1000);
-  // }
-
   search() {
     let query = this.searchTerm;
     if(query) {
       setTimeout(()=> {
         if(query == this.searchTerm) {
-          console.log("searching");
+          console.log("searching: " + this.searchTerm);
           this.router.navigate(['weather', {searchTerm: this.searchTerm}]);
         } else {
           console.log("interupt");
