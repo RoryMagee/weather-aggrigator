@@ -4,13 +4,29 @@
             No Location
         </div>
         <div *ngIf="data">
-            <h1 class="mt-5">{{ data.location.name }}</h1>
-            <div class="card text-center">
+            <h1 class="mt-5">{{ data.location.name }}, {{ data.location.country }}</h1>
+            <p><small class="text-muted">Localtime: {{ data.location.localtime | date:'shortTime'}}</small></p>
+            <div class="card text-center animated slideInUp fast">
                 <div class="card-body">
                     <img src="{{ data.current.condition.icon }}" alt="">
-                    <p class="card-text">{{ data.current.temp_c }}</p>
-                    <p class="card-text">{{ data.current.condition.text }}</p>
-                    <hr>
+                    <p class="card-text font-weight-bold ">{{ data.current.temp_c }}&#176;C</p>
+                    <p class="card-text font-weight-bold">{{ data.current.condition.text }}</p>
+                </div>
+            </div>
+            <div class="row p-3">
+                <div class="card text-center col-md-6 animated slideInUp fast">
+                    <div class="card-body">
+                        <span style="font-size: 3em;"><i class="fas fa-wind"></i></span>
+                        <p class="card-text">Wind Speed: {{ data.current.wind_mph }}</p>
+                        <p class="card-text">Wind Direction: <i [ngStyle]="{'transform': 'rotate(' + data.current.wind_degree + 'deg)'}" class="fas fa-arrow-up"></i></p>
+                        <p class="card-text">Wind Speed: {{ data.current.wind_mph }}</p>
+                        <p class="card-text">Wind Speed: {{ data.current.wind_mph }}</p>
+                    </div>
+                </div>
+                <div class="card col-md-6 animated slideInUp fast">
+                    <div class="card-body">
+                        <p>sdkfjn</p>
+                    </div>
                 </div>
             </div>
         </div>
