@@ -16,16 +16,20 @@
             <div class="row p-3">
                 <div class="card text-center col-md-6 animated slideInUp fast">
                     <div class="card-body">
-                        <span style="font-size: 3em;"><i class="fas fa-wind"></i></span>
-                        <p class="card-text">Wind Speed: {{ data.current.wind_mph }}</p>
+                        <span style="font-size: 3em;">Wind <i class="fas fa-wind"></i></span>
+                        <p class="card-text">Wind Speed: {{ data.current.wind_mph }}mph</p>
                         <p class="card-text">Wind Direction: <i [ngStyle]="{'transform': 'rotate(' + data.current.wind_degree + 'deg)'}" class="fas fa-arrow-up"></i></p>
                         <p class="card-text">Wind Speed: {{ data.current.wind_mph }}</p>
                         <p class="card-text">Wind Speed: {{ data.current.wind_mph }}</p>
                     </div>
                 </div>
-                <div class="card col-md-6 animated slideInUp fast">
+                <div class="card text-center col-md-6 animated slideInUp fast">
                     <div class="card-body">
-                        <p>sdkfjn</p>
+                        <span style="font-size: 3em;"><i class="fas fa-wind"></i></span>
+                        <p class="card-text">Wind Speed: {{ data.current.wind_mph }}</p>
+                        <p class="card-text">Wind Direction: <i [ngStyle]="{'transform': 'rotate(' + data.current.wind_degree + 'deg)'}" class="fas fa-arrow-up"></i></p>
+                        <p class="card-text">Wind Speed: {{ data.current.wind_mph }}</p>
+                        <p class="card-text">Wind Speed: {{ data.current.wind_mph }}</p>
                     </div>
                 </div>
             </div>
