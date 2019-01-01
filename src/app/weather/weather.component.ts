@@ -13,7 +13,7 @@ import { environment } from '../../environments/environment';
 export class WeatherComponent implements OnInit {
   searchTerm: string;
   data: any;
-  link: string = "http://api.apixu.com/v1/current.json?key=";
+  link: string = "http://api.apixu.com/v1/forecast.json?key=";
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private http: HttpClient) { }
 
   ngOnInit() {
@@ -28,7 +28,7 @@ export class WeatherComponent implements OnInit {
   async getWeather() {
     try {
       console.log("getting weather");
-      const response = await this.http.get(this.link + environment.api_key + '&q=' + this.searchTerm, { observe: 'response' })
+      const response = await this.http.get(this.link + environment.api_key + '&q=' + this.searchTerm + '&days=3', { observe: 'response' })
       .subscribe(resp => {
         if (resp.status == 200) {
           this.data = resp.body;
