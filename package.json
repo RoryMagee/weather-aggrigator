@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "scripts": {
     "ng": "ng",
-    "start": "node index.js",
+    "start": "node server",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -54,7 +54,7 @@
     "typescript": "~3.1.6"
   },
   "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.0.",
-  "main": "index.js",
+  "main": "server.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RoryMagee/weather.git"
