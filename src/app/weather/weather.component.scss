@@ -3,9 +3,17 @@
 }
 
 .sunrise {
-    background-color: #c3c61b;
+    background-color: #c3c61b   ;
 }
 
 .sunset {
     background-color: #010c72;
 }
+
+mwl-gauge {
+    width: 50%;
+    height: 50%;
+    display: block;
+    margin:auto;
+    
+  }
