@@ -15,19 +15,22 @@
             </div>
             <div class="row p-3">
                 <div class="card col-12 animated slideInUp fast">
-                <div class="card-body">
-                    <div class="progress" style="height: 3em;">
-                        <div style="font-size: 2em;" [ngStyle]="{'width': sunrise + '%'}" class="progress-bar sunrise" role="progressbar" aria-valuemin="0" aria-valuemax="100" ngStyle="">Sunrise</div>
-                        <div style="font-size: 2em;" [ngStyle]="{'width': sunset-sunrise + '%'}" class="progress-bar bg-success" role="progressbar" aria-valuemin="0" aria-valuemax="100">Daylight</div>
-                        <div style="font-size: 2em;" [ngStyle]="{'width': 100-sunset + '%'}" class="progress-bar sunset" role="progressbar" aria-valuemin="0" aria-valuemax="100">Sunset</div>
-                      </div>
-                      <div class="row">
-                          <div *ngFor="let time of times" class="col">
-                              <p>{{ time }}:00</p>
-                          </div> 
-                      </div>
+                    <div class="card-body">
+                        <div class="progress" style="height: 3em;">
+                            <div style="font-size: 2em;" [ngStyle]="{'width': sunrise + '%'}" class="progress-bar surise"
+                                role="progressbar" aria-valuemin="0" aria-valuemax="100" ngStyle="">Sunrise</div>
+                            <div style="font-size: 2em;" [ngStyle]="{'width': sunset-sunrise + '%'}" class="progress-bar bg-success"
+                                role="progressbar" aria-valuemin="0" aria-valuemax="100">Daylight</div>
+                            <div style="font-size: 2em;" [ngStyle]="{'width': 100-sunset + '%'}" class="progress-bar sunset"
+                                role="progressbar" aria-valuemin="0" aria-valuemax="100">Sunset</div>
+                        </div>
+                        <div class="row">
+                            <div *ngFor="let time of times" class="col">
+                                <p>{{ time }}:00</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
             </div>
             <div class="row p-3">
                 <div class="card col-lg-6 animated slideInUp fast">
@@ -64,24 +67,26 @@
                             </p>
                         </div>
                         <div class="conatiner">
-                            <p class="card-text">Feels like: {{ data.current.feelslike_c }}&#176;C</p>
+                            <p class="card-text">
+                                <i class="fas fa-thermometer-half"></i> Feels like: {{ data.current.feelslike_c
+                                }}&#176;C</p>
+                            <div class="mt-4">
+                                <p class="card-text">
+                                    <i class="fas fa-binoculars"></i> Current visibility is {{ data.current.vis_miles
+                                    }} miles
+                                </p>
+                            </div>
                             <div class="row align-items-center mt-4">
                                 <div class="col-sm-4">
                                     <p class="card-text">Humidity:</p>
                                 </div>
                                 <div class="col-sm-8">
                                     <div class="progress" style="height: 2em;">
-                                        <div style="font-size: 2em;" class="progress-bar"
-                                            role="progressbar" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'width': data.current.humidity + '%'}">{{
+                                        <div style="font-size: 2em;" class="progress-bar" role="progressbar"
+                                            aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'width': data.current.humidity + '%'}">{{
                                             data.current.humidity }}%</div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="mt-4">
-                                <p class="card-text">
-                                    <i class="fas fa-binoculars"></i> Current visibility is {{ data.current.vis_miles
-                                    }} miles
-                                </p>
                             </div>
                         </div>
                     </div>
