@@ -1,7 +1,9 @@
 <section id="weather">
     <div class="container">
         <div *ngIf="!data">
-            No Location
+            <h1 class="text-center display-2 mt-5 animated bounceInUp">
+                No Location :(
+            </h1>
         </div>
         <div *ngIf="data">
             <h1 class="mt-5">{{ data.location.name }}, {{ data.location.country }}</h1>
